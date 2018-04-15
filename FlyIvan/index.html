@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Project_one</title>
+	<title>Летающий Иван</title>
 	<link rel="stylesheet" href="assets/css/style.css">
 	
 
@@ -10,7 +10,7 @@
 
 <body>
 	
-	<div class="button button_hover" onclick="new Audio('https://cs1-63v4.vkuseraudio.net/p5/1ced32cdd54ef4.mp3?extra=JpL2GaiVM_ioFcateYcQa51sTOWJhZbBhwvM_Ilhobms_j1J1KVr-TzmqVkNLKksYiN4bCHpPiI16Kf1UwogVV7Ikmv25-seQEy3FTnrnEj-4tfMQYwqkzcZDBhk3D-OoGGBB5hkc-31F5tF').play(); return false;">
+	<div id="buttonv" class="button button_hover">
 		
 		<div class="background"></div>
 
@@ -27,8 +27,24 @@
 </body>
 
 <script src="assets/js/jquery-3.3.1.min.js"> </script>
-<script src="assets/js/main.js"> </script>
 
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<script>
+	
+$(document).ready(function(){
+
+	var music = new Audio('https://cs1-63v4.vkuseraudio.net/p5/1ced32cdd54ef4.mp3?extra=JpL2GaiVM_ioFcateYcQa51sTOWJhZbBhwvM_Ilhobms_j1J1KVr-TzmqVkNLKksYiN4bCHpPiI16Kf1UwogVV7Ikmv25-seQEy3FTnrnEj-4tfMQYwqkzcZDBhk3D-OoGGBB5hkc-31F5tF');
+
+	$('#buttonv').click(function(){
+		music.play();
+	});
+
+	$('.button').click(function(){
+		$('.button').removeClass('button_hover');
+		$('.button').addClass('button_active');
+		$('.img_Ivan').addClass('img_Ivan_anim');
+	});
+});
+
+</script>
 
 </html>
