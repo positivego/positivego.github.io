@@ -36,6 +36,17 @@ body {
 	opacity: 0;
 }
 
+.img_Ivan:hover .img{
+	transform: translate(-50%, -50%) scale(2);
+	transition: 2s;
+}
+
+.img_Ivan:hover .img_fire{
+	transform: translate(-50%, -50%) rotate(215deg) scale(2);
+	top: 100%; left: 20%;
+	transition: 2s;
+}
+
 .img_Ivan_anim {
 	opacity: 1;
 	animation: flyIvan 15s infinite linear;
@@ -49,6 +60,7 @@ body {
 	-webkit-background-size: cover;
 	background-size: cover;
 	opacity: 1;
+	transition: 2s;
 }
 
 .img_fire {
@@ -57,13 +69,14 @@ body {
 	background: url(../../img/ogon-animatsionnaya-kartinka-0379.gif)no-repeat center center;
 	-webkit-background-size: cover;
 	background-size: cover;
+	transition: 2s;
 }
 
 
 @keyframes flyIvan {
 	0% {
-		bottom: -10%;
-		left: -5%;
+		bottom: -20%;
+		left: -15%;
 	}
 
 	25% {
