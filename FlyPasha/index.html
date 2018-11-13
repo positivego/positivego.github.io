@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Летающий Паша</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	
+
+</head>
+
+<body>
+	
+	<div id="buttonv" class="button button_hover">
+		
+		<div class="background"></div>
+
+		<div class="img_Pasha">
+
+			<div class="img_fire"></div>
+			<div class="img"></div>
+			
+
+		</div>
+
+	</div>
+
+</body>
+
+<script src="assets/js/jquery-3.3.1.min.js"> </script>
+
+<script>
+	
+$(document).ready(function(){
+
+	var music = new Audio('1.mp3');
+
+	$('#buttonv').click(function(){
+		music.play();
+	});
+
+	$('.button').click(function(){
+		$('.button').removeClass('button_hover');
+		$('.button').addClass('button_active');
+		$('.img_Pasha').addClass('img_Pasha_anim');
+	});
+});
+
+</script>
+
+</html>
