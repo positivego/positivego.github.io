@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap&subset=cyrillic');
+
+* {
+	position: relative; z-index: 0;
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin: 0; padding: 0; color: white; text-decoration: none;
+}
+
+/* Секция ОДИН */
+
+.section-1 {
+	width: 100%; height: 600px;
+	background: url(../img/beach-scene-with-canoes-sat-by-shore.jpg) no-repeat center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.zagzag {
+	position: absolute; width: 100%; height: 100%;
+	background-color: rgba(47,43,196, 0.3);
+}
+
+.section-1--menu {
+	position: fixed; z-index: 3;
+	width: 100%; height: 50px; transition: 0.2s; background-color: #111111;
+}
+
+.section-1--menu-active {
+	background-color: #111111; transition: 0.2s; height: 30px;
+}
+
+.menu-conteiner {
+	position: absolute; width: 1170px; height: 100%;
+	transform: translateX(-50%); left: 50%;
+}
+
+.logo {
+	position: absolute; font-size: 30px; font-weight: bold;
+	transform: translateY(-50%); top: 50%; transition: 0.2s;
+}
+
+.logo-active {
+	font-size: 22px; transition: 0.2s;
+}
+
+
+.links {
+	position: absolute; right: 0; height: 100%;
+}
+
+.links a {
+	position: relative; margin-left: 30px; top: 25%; font-size: 20px;
+	transition: 0.3s;
+}
+
+.links-active {
+	font-size: 18px; top: 10%;
+}
+
+.links a:nth-child(1) {
+	margin-left: 0;
+}
+
+.links a:hover {
+	color: #fb9797;
+	transition: 0.3s;
+}
+
+.section-1--Abstract {
+	position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%;
+	font-weight: bold; font-size: 22px;
+}
+
+.section-1--Abstract p {
+	text-shadow: 5px 5px 5px rgba(0,0,0, 0.3);
+}
+
+/* Секция ДВА */
+
+.section-2 {
+	width: 100%; min-height: 150px;
+}
+
+.section-2--title {
+	width: 1170px;
+	transform: translateX(-50%); left: 50%;
+	padding-top: 30px; padding-bottom: 60px;
+}
+
+.section-2--title p {
+	position: absolute;
+	font-size: 24px; color: black;
+	transform: translateX(-50%); left: 50%;
+}
+
+.section-2--conteiner {
+	position: relative; display: flex; flex-wrap: wrap; justify-content: space-between;
+	width: 1170px; min-height: 150px;
+	transform: translateX(-50%); left: 50%;
+}
+
+.card {
+	width: 320px; min-height: 150px;
+	margin-top: 20px; margin-bottom: 20px;
+}
+
+.card .img {
+	position: relative; z-index: 1;
+	width: 100px; height: 100px; border-radius: 50px; border: solid 3px #fb9797;
+	
+}
+
+.card .img p {
+	position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%;
+	color: #fb9797; font-size: 30px;
+}
+
+.title {
+	position: relative; width: 100%; min-height: 20px;
+	margin-top: 30px; margin-bottom: 50px;
+}
+
+.title p {
+	position: absolute; color: black; font-weight: bold;
+}
+
+.inf p {
+	color: black;
+}
+
+/* Секция ТРИ */
+
+.section-3 {
+	width: 100%; min-height: 150px;
+}
+
+.section-3--conteiner {
+	width: 1170px; min-height: 500px;
+	transform: translateX(-50%); left: 50%;
+}
+
+.s3-img {
+	position: absolute; width: 550px; height: 500px;
+	transform: translateX(-50%); left: 50%;
+	background: url(../img/3a7046f2872cd1243da63ef9b218fa3a.jpg) no-repeat center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.s3-inf {
+	position: absolute; width: 250px; height: 100px; background-color: #111111;
+	transform: translate(-50%,-50%); top: 30%; left: 250px;
+	border-radius: 20px; z-index: 1;
+	animation: blabla 3s infinite;
+	box-shadow: 5px 10px 10px rgba(0,0,0, 0.4);
+}
+
+@keyframes blabla {
+  0% {
+     transform: translate(-50%,-50%) rotate(-15deg);
+  }
+  50% {
+	transform: translate(-50%,-50%) rotate(15deg);
+  }
+  100% {
+  	transform: translate(-50%,-50%) rotate(-15deg);
+  }
+}
+
+.s3-inf p {
+	position: absolute; transform: translate(-50%,-50%); top: 50%; left: 50%;
+	font-size: 25px;
+}
+
+/* FOOteR */
+
+.footer {
+	position: relative; width: 100%; min-height: 70px;
+	background-color: #111111;
+}
+
+.footer_content {
+	position: relative; width: 1170px; height: 100%; 
+	transform: translateX(-50%); left: 50%;
+}
+
+.footer_inf {
+	position: absolute; width: 100%; top: 10px;
+}
+
+.footer_inf p {
+	position: relative; font-size: 14px; 
+	transform: translateY(-50%); margin-top: 25px;
+	color: white;
+	float: left;
+}
+
+#year {
+	margin-left: 5px;
+}
+
+.footer_inf a {
+	color: white; text-decoration: underline;
+}
+
+/* О НАС */
+
+.about_us  {
+	position: fixed; width: 500px; min-height: 150px; z-index: 5;
+	opacity: 0; transition: 1.5s;
+	border-radius: 10px;
+	transform: translate(-50%,-50%); top: 150%; left: 50%;
+	box-shadow: -10px 10px 10px 5px rgba(0,0,0, 0.4);
+	background-color: #ff4a4a;
+}
+
+.about_us p {
+	margin: 10px;
+}
+
+.about_us-active {
+	top: 50%;
+}
+
+.about_us-opacity-active {
+	opacity: 1; transition: 1.5s;
+}
+
+.zagzagzag {
+	position: fixed; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.7);
+	z-index: 4; top: 100%; opacity: 0; transition: 0.5s;
+	cursor: pointer;
+}
+
+.zagzagzag-active {
+	top: 0; transition: 0.5s; opacity: 1;
+}
+
+.about_close {
+	position: absolute; width: 30px; height: 30px; border-radius: 30px;
+	background-color: white; right: 10px; top: 10px;
+	cursor: pointer; z-index: 6;
+}
+
+.about_close span::before {
+	content: ''; position: absolute; width: 15px; height: 3px;
+	background-color: black; 
+	transform: translate(-50%,-50%) rotate(45deg);
+	top: 15px; left: 15px;
+}
+
+.about_close span::after {
+	content: ''; position: absolute; width: 15px; height: 3px;
+	background-color: black; 
+	transform: translate(-50%,-50%) rotate(-45deg);
+	top: 15px; left: 15px;
+}
+
+.dich2 {
+	position: fixed; width: 300px; height: 300px;
+	transform: translate(-50%,-50%); top: 50%; left: 50%;
+	background: url(../img/Meme_stickers_085.png) no-repeat center center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	z-index: 10; display: none;
+}
+
+.dich2-active {
+	animation: dich 3s infinite; display: block;
+}
+
+@keyframes dich {
+ 	0% {
+		transform: translate(-50%,-50%) rotate(0deg) scale(0);
+ 	}
+
+ 	25% {
+		transform: translate(-50%,-50%) rotate(360deg) scale(2);
+ 	}
+
+ 	50% {
+ 		transform: translate(-50%,-50%) rotate(720deg) scale(1);
+ 	}
+
+ 	75% {
+		transform: translate(-50%,-50%) rotate(1080deg) scale(2);
+ 	}
+
+ 	100% {
+		transform: translate(-50%,-50%) rotate(1440deg) scale(0);
+ 	}
+}
