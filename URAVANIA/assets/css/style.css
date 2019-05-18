@@ -53,10 +53,6 @@
 	transition: 0.3s;
 }
 
-.links-active {
-	font-size: 18px; top: 10%;
-}
-
 .links a:nth-child(1) {
 	margin-left: 0;
 }
@@ -106,6 +102,7 @@
 
 .card .img {
 	position: relative; z-index: 1;
+	transform: translateX(-50%); left: 50%;
 	width: 100px; height: 100px; border-radius: 50px; border: solid 3px #fb9797;
 	
 }
@@ -289,4 +286,8 @@
  	100% {
 		transform: translate(-50%,-50%) rotate(1440deg) scale(0);
  	}
+}
+
+.b_about_us, .b_dich {
+	cursor: pointer;
 }

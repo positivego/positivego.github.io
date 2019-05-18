@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title> Самостоятельная работа </title>
+	<title> ЮРА - ВАНЯ </title>
 
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -17,9 +17,9 @@
 
 			<div class="links">
 					
-				<a href="#" class="b_about_us tgyh"> О нас </a>
-				<a target="_blank" href="https://positivego.github.io/FlyIvan/" class="tgyh"> Дичь </a>
-				<a href="#" class="b_dich tgyh"> Дичь №2(НЕ НАЖИМАТЬ) </a>
+				<a class="b_about_us"> О нас </a>
+				<a target="_blank" href="https://positivego.github.io/FlyIvan/" class=""> Дичь </a>
+				<a class="b_dich"> Дичь №2(НЕ НАЖИМАТЬ) </a>
 
 			</div>
 
@@ -130,9 +130,11 @@
 		
 		$(document).ready(function(){
 
-			var links = $('.tgyh'),
+			var links = $('.links>a'),
+				stylelink0 = links[0].style,
+				stylelink1 = links[1].style,
+				stylelink2 = links[2].style,
 				button_about = $('.b_about_us');
-
 
 			button_about.click(function(){
 				$('.about_us').addClass('about_us-active');
@@ -159,11 +161,17 @@
 					$('.section-1--menu').addClass('section-1--menu-active');
 					$('.logo').addClass('logo-active');
 					links.addClass('links-active');
+					stylelink0.top = "10%"; stylelink0.fontSize = "16px";
+					stylelink1.top = "10%"; stylelink1.fontSize = "16px";
+					stylelink2.top = "10%"; stylelink2.fontSize = "16px";
 				} 
 				else {
 					$('.section-1--menu').removeClass('section-1--menu-active');
 					$('.logo').removeClass('logo-active');
 					links.removeClass('links-active');
+					stylelink0.top = "25%"; stylelink0.fontSize = "20px";
+					stylelink1.top = "25%"; stylelink1.fontSize = "20px";
+					stylelink2.top = "25%"; stylelink2.fontSize = "20px";
 				}
 			});
 
