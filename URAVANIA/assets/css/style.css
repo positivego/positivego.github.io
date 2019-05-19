@@ -291,3 +291,24 @@
 .b_about_us, .b_dich {
 	cursor: pointer;
 }
+
+.goTop {
+	position: fixed; width: 40px; height: 40px; right: 20px; bottom: 90px;
+	background-color: white; border-radius: 40px; box-shadow: 2px 2px 7px rgba(0,0,0, 0.5);
+	z-index: 4; cursor: pointer; opacity: 0; transition: 0.3s;
+}
+
+.goTop_show {
+	opacity: 1; transition: 0.3s;
+}
+
+.goTop span::before {
+	content: ''; position: absolute; width: 12px; height: 4px; background-color: black;
+	transform: translate(-50%,-50%) rotate(-45deg); left: 18px; top: 20px;
+	-moz-top: 170px;
+}
+
+.goTop span::after {
+	content: ''; position: absolute; width: 12px; height: 4px; background-color: black;
+	transform: translate(-50%,-50%) rotate(45deg); left: 24px; top: 20px;
+}

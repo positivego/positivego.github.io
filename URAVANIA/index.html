@@ -9,6 +9,8 @@
 </head>
 <body>
 
+	<div class="goTop"> <span> </span> </div>
+
 	<div class="section-1--menu">
 			
 		<div class="menu-conteiner">
@@ -161,6 +163,7 @@
 					$('.section-1--menu').addClass('section-1--menu-active');
 					$('.logo').addClass('logo-active');
 					links.addClass('links-active');
+					$('.goTop').addClass('goTop_show');
 					stylelink0.top = "10%"; stylelink0.fontSize = "16px";
 					stylelink1.top = "10%"; stylelink1.fontSize = "16px";
 					stylelink2.top = "10%"; stylelink2.fontSize = "16px";
@@ -169,10 +172,25 @@
 					$('.section-1--menu').removeClass('section-1--menu-active');
 					$('.logo').removeClass('logo-active');
 					links.removeClass('links-active');
+					$('.goTop').removeClass('goTop_show');
 					stylelink0.top = "25%"; stylelink0.fontSize = "20px";
 					stylelink1.top = "25%"; stylelink1.fontSize = "20px";
 					stylelink2.top = "25%"; stylelink2.fontSize = "20px";
 				}
+
+			});
+
+			$(window).scroll(function(){
+				if ($(window).scrollTop() > 400) {
+					$('.goTop').addClass('goTop_show');
+				} 
+				else {
+					$('.goTop').removeClass('goTop_show');
+				}
+			});
+
+			$('.goTop').click(function(){
+				$('body,html').animate({scrollTop:0},800);
 			});
 
 			var year = new Date();
