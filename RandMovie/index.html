@@ -1,217 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title> randmovie </title>
-
-	<link rel="stylesheet" href="assets/css/normalize.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RandMovie</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-	<div class="close_bcg button_close"></div>
+    <div class="menu">
+        <div class="menu_conteiner">
+            <div class="menu_logo">
+                <p style="float:left;">Rand</p>
+                <p style="float:left;">Movie</p>
+            </div>
+            <div class="menu_search">
+                <input type="text">
+                <button><img src="/assets/img/buttons/search.svg" alt=""></button>
+            </div>
+            <div class="menu_buttons">
+                <div class="film_rand">
+                    <p>Шо поглазеть ?</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="block film_block">
-
-		<!-- <img id="myImg" src='assets/img/film/1.jpg'> -->
-		
-		<p> Генератор случайных фильмов говорит - иди смотри: </p>
-
-		<div class="film_name--block"> <p id="film_name"> </p> </div>
-
-		<div class="film_button--block rnd_film">  <p> еще давай! </p>  </div>
-
-		<div class="film_block--close button_close"> <span> </span> </div>
-
-	</div>
-
-	<div class="block serial_block">
-		
-		<p> Генератор случайных сериалов говорит - иди смотри: </p>
-
-		<div class="film_name--block"> <p id="serials_name"> </p> </div>
-
-		<div class="film_button--block rnd_serials">  <p> еще давай! </p>  </div>
-
-		<div class="film_block--close button_close"> <span> </span> </div>
-
-	</div>
-
-	<section class="section-1">
-	
-	<div class="section-1--content">
-		
-		<p> Зачем это нужно ? </p>
-
-		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ipsa cumque quis vel! Vel, atque labore perferendis odio et totam aliquam! Fugit voluptates architecto enim odit repudiandae aspernatur eum inventore? </p>
-
-		<div class="buttons_panel">
-
-			<div class="button_text"> <p> Чего изволите ? </p> </div>
-			
-			<div class="film_button"> <p> Фильм </p> </div>
-
-			<div class="serial_button"> <p> Сериал </p> </div>
-
-		</div>
-
-	</div>
-
-	</section>
-
-	<section class="section-2">
-
-		<div class="section-2--content" style="min-height: 400px;">
-			
-			<div class="line">
-				
-				<p> Заюзаные фильмы </p>
-
-			</div>
-
-			<div id="film_list" class="list"></div>
-
-		</div>
-
-		<div class="section-2--content">
-			
-			<div class="line">
-				
-				<p> Заюзаные сериалы </p>
-
-			</div>
-
-			<div id="serial_list" class="list"></div>
-
-		</div>
-
-	</section>
+    <section class="film_list">
+        <div class="film_list_conteiner"></div>
+    </section>
 
 	<section class="footer">
-		
 		<div class="footer_content">
-
-
 			<div class="footer_inf">
-				
 				<p> &copy; <p id="year">  </p> </p>
-				
 				<p> &nbsp; - developed by <a target="_blank" href="https://vk.com/reptiloid_yurka"> Yura Ryabov </a> </p>
-
 			</div>
-
 		</div>
-
 	</section>
-
-
-
 
 </body>
 
-<script src="assets/js/jquery-3.2.1.min.js"></script>
-<script src="assets/js/film.js"></script>
-<script src="assets/js/serial.js"></script>
-
-<script>
-
-	$(document).ready(function(){
-
-
-		/* --- Фильмы --- */
-
-
-		$('.film_button').click(function(){
-
-			var rand_film = Math.floor(Math.random() * film.length),
-				film_name = film[rand_film];
-
-				document.getElementById('film_name').innerHTML = film_name;
-
-				$('.film_block').addClass('block_active');
-				$('.close_bcg').addClass('close_bcg_active');
-
-		});		
-
-		$('.rnd_film').click(function(){
-
-			var rand_film = Math.floor(Math.random() * film.length),
-				film_name = film[rand_film];
-
-				/*
-				
-				Рандомные фильмы из асоциативного массима film ( js/future/film.js )
-				c background из картинок
-
-				film_name = film[rand_film].film_name,
-				img_src = film[rand_film].scr,
-				img_bcg = document.getElementById("myImg");
-
-				img_bcg.src = img_src; 
-
-				*/
-
-				document.getElementById('film_name').innerHTML = film_name;
-
-		});
-
-
-		/* --- Сериалы --- */
-
-
-		$('.serial_button').click(function(){
-
-			var rand_serial = Math.floor(Math.random() * serial.length),
-				serial_name = serial[rand_serial];
-
-				document.getElementById('serials_name').innerHTML = serial_name;
-
-				$('.serial_block').addClass('block_active');
-				$('.close_bcg').addClass('close_bcg_active');
-
-		});		
-
-		$('.rnd_serials').click(function(){
-
-			var rand_serial = Math.floor(Math.random() * serial.length),
-				serial_name = serial[rand_serial];
-
-				document.getElementById('serials_name').innerHTML = serial_name;
-
-		});
-
-
-		/* --- Close --- */
-
-
-		$('.button_close').click(function(){
-
-			$('.film_block').removeClass('block_active');
-			$('.serial_block').removeClass('block_active');
-			$('.close_bcg').removeClass('close_bcg_active');
-
-		});	
-
-		/* --- Листинг фильмов / сериалов --- */
-
-		var film_list = film,
-			serial_list = serial;
-
-		document.getElementById('film_list').innerHTML = film_list;
-		document.getElementById('serial_list').innerHTML = serial_list;
-
-
-		/* --- год --- */
-
-		var year = new Date();
-
-		document.getElementById('year').innerHTML = year.getFullYear();
-
-	});
-	
-
-</script>
+<script src="assets/js/Main.js"></script>
 
 </html>

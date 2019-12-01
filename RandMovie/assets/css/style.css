@@ -1,276 +1,187 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 body {
-	font-family: 'Montserrat Alternates', sans-serif;
-	font-size: 10px;
-	z-index: 1;
-	width: 100%;
-	cursor: default;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	overflow-x: hidden;
-}
-
-.block {
-	position: fixed; width: 250px;
-	transform: translate(-50%, -50%); top: 66%; left: 50%;
-	background-color: #df2f2f;
-	border-radius: 10px;
-	opacity: 0;
-	box-shadow: 10px 10px 30px rgba(0,0,0, 0.7);
-}
-
-/*
-.block img {
-	position: absolute; top: 0; left: 0; height: 100%; width: 100%;
-	opacity: 0.3;
-	border-radius: 10px; 
-}
-*/
-
-.block_active {
-	opacity: 1; transition: 0.3s;
-	transform: translate(-50%, -50%); top: 50%; left: 50%;
-	z-index: 3;
-}
-
-.block p {
-	position: relative; margin: 25px 15px 0px;
-	font-size: 18px; 
-	text-align: center; line-height: 30px;
-	color: white;
-	text-shadow: 3px 3px 15px rgba(0,0,0, 0.7);
-}
-
-.film_name--block {
-	position: relative; min-height: 90px;
-	margin: 10px 10px 0px;
-	-webkit-user-select: all;
-	-moz-user-select: all;
-	-ms-user-select: all;
-	user-select: all;
-}
-
-.film_name--block p:nth-child(1) {
-	position: relative; 
-	font-size: 18px; color: #111111;
-	text-align: center; line-height: 30px; font-weight: 700;
-}
-
-.film_button--block {
-	cursor: pointer;
-	position: relative; width: 50%; height: 30px; color: white;
-	background-color: #111111; margin: 10px 0px;
-	transform: translateX(-50%); left: 50%;
-	border-radius: 10px;
-	box-shadow: 5px 5px 15px rgba(0,0,0, 0.7);
-}
-
-.film_button--block p:nth-child(1) {
-	position: relative; font-size: 12px;
-	margin: 0px 0px 0px;
-	transform: translate(-50%, -50%); top: 50%; left: 50%;
-}
-
-.close_bcg {
-	position: fixed; width: 100%; height: 100%;
-	opacity: 0;
-	background-color: rgba(0,0,0, 0.6);
-}
-
-.close_bcg_active {
-	opacity: 1; transition: 0.3s;
-	z-index: 3;
-}
-
-.film_block--close {
-	cursor: pointer;
-	position: absolute; width: 30px; height: 30px;
-	border-radius: 30px;
-	background-color: #111111;
-	transform: translate(-50%, -50%); top: 0; left: 50%;
-	box-shadow: 5px 5px 15px rgba(0,0,0, 0.7);
-}
-
-.film_block--close span:after {
-	content: '';
-	position: absolute; width: 50%; height: 2px; background-color: white;
-	transform: translate(-50%, -50%) rotate(45deg); top: 50%; left: 50%
-}
-
-.film_block--close span:before {
-	content: '';
-	position: absolute; width: 50%; height: 2px; background-color: white;
-	transform: translate(-50%, -50%) rotate(-45deg); top: 50%; left: 50%
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1;
+    font-size: 14px; color: white;
 }
 
 
-/* --------------------------- */
-/* -------- section-1 -------- */
-/* --------------------------- */
-
-.section-1 {
-	position: relative; width: 100%; height: 500px; top: -50px;
-	background: url(../img/background.jpg)no-repeat center center;
-	-webkit-background-size: cover;
-	background-size: cover;
-	transform: skewY(-2deg);
+/* Меню  */
+.menu {
+    position: fixed; width: 100%; height: 50px;
+    z-index: 2; background-color: #1f1f1f;
+}
+.menu_conteiner {
+    position: absolute; width: 1170px; height: 100%;
+    transform: translateX(-50%); left: 50%;
+}
+.menu_logo {
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+}
+.menu_logo p {
+    font-size: 18px;
+}
+.menu_logo p:nth-child(2) {
+    font-weight: 700; color: red;
 }
 
-.section-1--content {
-	position: relative; width: 1170px; height: 100%;
-	transform: translateX(-50%) skewY(2deg); left: 50%;
-	line-height: 30px;
+/* Поиск */
+.menu_search {
+    position: absolute; width: 400px; height: 30px;
+    transform: translate(-50%, -50%); left: 50%; top: 50%;
+}
+.menu_search input {
+    position: absolute; height: 100%; width: 90%;
+    outline: none; border: none;padding-left: 10px;
+    font-size: 16px; border-radius: 5px;
+}
+.menu_search button {
+    position: absolute; width: 30px; height: 30px;
+    transform: translateY(-50%); right: 0; top: 50%;
+    outline: none; border: none; border-radius: 30px;
+    cursor: pointer; background-color: red;
+}
+.menu_search button img {
+    position: absolute; width: 15px; height: 15px;
+    transform: translate(-50%, -50%); left: 50%; top: 50%;
+}
+.menu_search button:hover img {
+    animation: searchHover 1.5s linear infinite;
 }
 
-.section-1--content p:nth-child(1) {
-	position: relative;
-	color: white; font-size: 28px; font-weight: 700; top: 40%;
-	text-shadow: 5px 5px 5px rgba(0,0,0, 0.7)
+@keyframes searchHover {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(-15deg) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
 }
 
-.section-1--content p:nth-child(2) {
-	position: relative;
-	color: white; font-size: 20px; font-weight: 700; top: 49%;
-	text-shadow: 5px 5px 5px rgba(0,0,0, 0.7)
+/* Кнопки */
+.menu_buttons {
+    position: absolute; height: 100%; right: 0;
+    transform: translateY(-50%); top: 50%;
 }
-
-.buttons_panel {
-	position: relative; height: 50px; top: 55%;
+.menu_buttons .film_rand {
+    position: relative; height: 100%;
+    cursor: pointer; 
+    transition: 0.3s;
 }
-
-.button_text { 
-	position: relative; transform: translateY(-50%); top: 50%;
-	float: left;
+.menu_buttons .film_rand:hover {
+    color: red; transition: 0.3s;
 }
-
-.button_text p:nth-child(1) {
-	position: relative; float: left;
-	color: white; font-size: 20px; font-weight: 700;
-	text-shadow: 5px 5px 5px rgba(0,0,0, 0.7);
+.menu_buttons .film_rand p {
+    position: relative; height: 100%;
+    font-weight: 700;
+    display: flex; align-items: center; padding: 0 10px;
+    transform: translate(-50%); left: 50%;
 }
+/* Конец меню */
 
-.film_button {
-	cursor: pointer; 
-	position: relative; float: left;
-	transform: translateY(-50%); top: 50%;;
-	margin-left: 25px;
+/* Первая секция со списком фильмов */
+.film_list {
+    position: relative; width: 100%; min-height: 600px; top: 60px;
 }
-
-.film_button p:nth-child(1) {
-	position: relative; float: left;
-	color: white; font-size: 20px; font-weight: 700;
-	text-shadow: 5px 5px 5px rgba(0,0,0, 0.7);
-	padding: 10px;
+.film_list_conteiner {
+    position: relative; width: 100%; height: 100%;
+    display: flex; flex-wrap: wrap; justify-content: space-between;
 }
-
-.film_button:hover {
-	background-color: white;
-	box-shadow: 5px 5px 5px rgba(0,0,0, 0.7);
+.film_list__film {
+    position: relative; width: 250px; height: 350px; margin: 10px;
+    cursor: pointer; background-color: red;
 }
-
-.film_button:hover p:nth-child(1) {
-	color: #111111;
-	text-shadow: 0px 0px 0px rgba(0,0,0, 0.0);
+.img_card_l {
+    position: absolute; width: 100%; height: 100%;
+    overflow: hidden;
 }
-
-.serial_button {
-	cursor: pointer; 
-	position: relative; float: left;
-	transform: translateY(-50%); top: 50%;;
-	margin-left: 25px;
+.img_card_l .img_card {
+    position: absolute; width: 100%; height: 100%;
+    transform: translate(-50%, -50%); top: 50%; left: 50%;
+    transition: 0.3s;
 }
-
-.serial_button p:nth-child(1) {
-	position: relative; float: left;
-	color: white; font-size: 20px; font-weight: 700;
-	text-shadow: 5px 5px 5px rgba(0,0,0, 0.7);
-	padding: 10px;
+.film_list__film--conteiner {
+    position: absolute; width: 500px; height: 350px; left: 270px;
+    display: none; background-color: #1f1f1f;
+    z-index: 2;
 }
-
-.serial_button:hover {
-	background-color: white;
-	box-shadow: 5px 5px 5px rgba(0,0,0, 0.7);
+.film_list__film:nth-child(5) .film_list__film--conteiner,
+.film_list__film:nth-child(6) .film_list__film--conteiner,
+.film_list__film:nth-child(7) .film_list__film--conteiner,
+.film_list__film:nth-child(12) .film_list__film--conteiner,
+.film_list__film:nth-child(13) .film_list__film--conteiner,
+.film_list__film:nth-child(14) .film_list__film--conteiner,
+.film_list__film:nth-child(19) .film_list__film--conteiner,
+.film_list__film:nth-child(20) .film_list__film--conteiner,
+.film_list__film:nth-child(21) .film_list__film--conteiner {
+    left: -520px;
 }
-
-.serial_button:hover p:nth-child(1) {
-	color: #111111;
-	text-shadow: 0px 0px 0px rgba(0,0,0, 0.0);
+.film_list__film--conteiner .title {
+    position: relative; width: 100%; height: 50px; 
+    display: flex; align-items: center;
 }
-
-/* --------------------------- */
-/* -------- section-2 -------- */
-/* --------------------------- */
-
-.section-2 {
-	position: relative; width: 100%; min-height: 100px;
-
+.film_list__film--conteiner .title p {
+    font-size: 18px; padding-left: 10px;
 }
-
-.section-2--content {
-	position: relative; width: 1170px; min-height: 100px;
-	transform: translateX(-50%); left: 50%;
-
+.film_list__film--conteiner .tags {
+    position: relative; width: 100%; height: 30px;
+    margin-bottom: 20px; display: flex; align-items: center;
 }
-
-.line {
-	position: relative; width: 100%; height: 2px;
-	background-color: #df2f2f; margin-top: 50px;
+.film_list__film--conteiner .tags p {
+    font-size: 12px; padding-left: 10px;
 }
-
-.line p {
-	position: absolute; background-color: white;
-	font-size: 14px; font-weight: 700; margin-left: 25px;
-	transform: translateY(-50%); padding: 0px 10px 0px 10px;
+.film_list__film--conteiner .line {
+    position: relative; width: 480px; height: 2px; left: 10px;
+    border-radius: 100px; background-color: white; opacity: 0.3;
 }
-
-.list {
-	position: relative; width: 100%; height: min-height: 100px;
-	text-align: justify; font-size: 14px; line-height: 20px;
-	margin-top: 30px;
+.film_list__film--conteiner .description {
+    position: relative; width: 100%; min-height: 30px;
+    padding-left: 10px; padding-right: 10px; margin-top: 30px;
+    font-size: 14px; line-height: 24px; text-align: justify;
 }
-
-/* --------------------------- */
-/* -------- footer ----------- */
-/* --------------------------- */
-
-.section-2--content:last-child {
-	margin-bottom: 130px;
+.film_list__film:hover {
+    box-shadow: 7px 7px 10px rgba(0,0,0, 0.7);
 }
-
-.section-2--content:first-child {
-	margin-top: 60px;
+.film_list__film:hover .film_list__film--conteiner {
+    display: block; box-shadow: 7px 7px 10px rgba(0,0,0, 0.7);
 }
+.film_list__film:hover .img_card_l .img_card {
+    transform: translate(-50%, -50%) scale(1.1) rotate(3deg); top: 50%; left: 50%; transition: 0.3s;
+}
+/* Конец - Первая секция со списком фильмов */
 
+/* Футер */
 .footer {
-	position: relative; width: 100%; min-height: 100px;
-	background-color: #111111;
+	position: relative; width: 100%; height: 70px; top: 70px;
+	background-color: #1f1f1f;
 }
-
-.footer::before {
-	content: '';
-	position: absolute; width: 100%; min-height: 100px; top: -35px;
-	background-color: #111111; transform: skewY(2deg);
-}
-
 .footer_content {
 	position: relative; width: 1170px; height: 100%; 
-	transform: translateX(-50%); left: 50%;
+    transform: translateX(-50%); left: 50%;
 }
-
+.footer_inf {
+    position: relative; width: 100%; height: 100%;
+}
 .footer_content p {
 	position: relative; font-size: 14px; 
-	transform: translateY(-50%); margin-top: 25px;
+	transform: translateY(-50%); top: 50%;
 	color: white;
 	float: left;
 }
-
 #year {
 	margin-left: 5px;
 }
-
 .footer_inf a {
 	color: white;
 }
+/* Конец - Футер */
