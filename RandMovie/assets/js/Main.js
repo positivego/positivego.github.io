@@ -2,7 +2,7 @@ const btnRandMovie = document.querySelector('.film_rand');
 
 // Получение данных
 function getData() {
-    fetch('/assets/js/bd/Films.json').then((response) => {
+    fetch('https://positivego.github.io/RandMovie/assets/js/bd/Films.json').then((response) => {
             if (response.ok) {
                 return response.json();
             } else {
