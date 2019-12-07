@@ -1,0 +1,36 @@
+/*Прелоадер*/
+.preloader-bg {
+    position: fixed; width: 100%; height: 100%; z-index: 9;
+    background-color: #1f1f1f; opacity: 1; transition: 0.5s; visibility: visible;
+    display: flex; justify-content: center; align-items: center;
+}
+.preloader-bg .preloader {
+    position: absolute; width: 150px; height: 150px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #fc2323;
+    animation: spin 2s linear infinite;
+    filter: blur(0.7px);
+}
+.preloader-bg .preloader::after {
+    content: '';
+    position: absolute; width: 135px; height: 135px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #f1fd40; left: 7.5px;
+    animation: spin 2s ease infinite;
+}
+.preloader-bg .preloader::before {
+    content: '';
+    position: absolute; width: 160px; height: 160px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #4d77ff; left: -5px;
+    animation: spin 2s ease-in-out infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.preloader-done {
+    opacity: 0; visibility: hidden;
+}
+/* ------конец------- */

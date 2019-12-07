@@ -4,6 +4,9 @@ body {
     z-index: 1;
     font-size: 14px; color: white;
 }
+a {
+    text-decoration: none; color: white;
+}
 .background_btn {
     position: fixed; width: 100%; height: 100%; z-index: 3; bottom: -100%; transition: 0.3s;
     background-color: rgba(0,0,0, 0.5); opacity: 0;
@@ -19,7 +22,7 @@ body {
     box-shadow: 3px 3px 20px 5px rgba(0, 0, 0, 1);
 }
 .film_card_active {
-    top: 50%; transition: 0.3s; opacity: 1;
+    top: 50%; transition: 0.3s; opacity: 1; transition-delay: 0.1s;
 }
 .film_card_l {
     position: relative; width: 250px; height: 350px; overflow: hidden;
@@ -84,6 +87,40 @@ body {
 .film_card--close_btn:hover {
     transform: rotate(180deg); transition: 0.3s;
 }
+.card-preloader {
+    position: absolute; width: 100%; height: 100%; z-index: 7;
+    background-color: #1f1f1f; opacity: 1; transition: 0.5s; visibility: visible;
+    display: flex; justify-content: center; align-items: center;
+}
+.card-preloader .preloader {
+    position: absolute; width: 100px; height: 100px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #fc2323;
+    animation: spinC 2s linear infinite;
+    filter: blur(0.7px);
+}
+.card-preloader .preloader::after {
+    content: '';
+    position: absolute; width: 85px; height: 85px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #f1fd40; left: 7.5px;
+    animation: spinC 2s ease infinite;
+}
+.card-preloader .preloader::before {
+    content: '';
+    position: absolute; width: 110px; height: 110px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #4d77ff; left: -5px;
+    animation: spinC 2s ease-in-out infinite;
+}
+@keyframes spinC {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.preloader-done {
+    opacity: 0; visibility: hidden;
+}
 /* Конец карточки */
 
 /* Меню  */
@@ -106,79 +143,50 @@ body {
     font-weight: 700; color: #fc2323;
 }
 
-/* Поиск */
-.menu_search {
-    position: absolute; width: 400px; height: 30px;
-    transform: translate(-50%, -50%); left: 50%; top: 50%;
-}
-.menu_search input {
-    position: absolute; height: 100%; width: 90%;
-    outline: none; border: none;padding-left: 10px;
-    font-size: 16px; border-radius: 5px;
-}
-.menu_search button {
-    position: absolute; width: 30px; height: 30px;
-    transform: translateY(-50%); right: 0; top: 50%;
-    outline: none; border: none; border-radius: 30px;
-    cursor: pointer; background-color: #fc2323;
-}
-.menu_search button img {
-    position: absolute; width: 15px; height: 15px;
-    transform: translate(-50%, -50%); left: 50%; top: 50%;
-}
-.menu_search button:hover img {
-    animation: searchHover 1.5s linear infinite;
-}
-
-@keyframes searchHover {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    }
-    25% {
-        transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
-    }
-    50% {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    }
-    75% {
-        transform: translate(-50%, -50%) rotate(-15deg) scale(1.1);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    }
-}
-
 /* Кнопки */
-.menu_buttons {
-    position: absolute; height: 100%; right: 0;
-    transform: translateY(-50%); top: 50%;
+.menu_buttons { 
+    position: absolute; right: 0; height: 100%;
+    display: flex; align-items: center;
 }
-.menu_buttons .film_rand {
+.filter_buttons {
     position: relative; height: 100%;
-    cursor: pointer; 
-    transition: 0.3s;
+    display: flex;
 }
-.menu_buttons .film_rand:hover {
+.filter_buttons .filterBtn {
+    position: relative; height: 100%; cursor: pointer;
+}
+.filter_buttons .filterBtn p {
+    position: relative; height: 100%;
+    display: flex; align-items: center; margin: 0 10px; transition: 0.3s;
+}
+.filter_buttons .filterBtn:hover p {
     color: #fc2323; transition: 0.3s;
 }
+.menu_buttons .line {
+    position: relative; width: 2px; height: 50%; background-color: #fc2323;; margin: 0px 20px; opacity: 0.5;
+}
+.menu_buttons .film_rand {
+    position: relative; height: 100%; cursor: pointer;
+}
 .menu_buttons .film_rand p {
-    position: relative; height: 100%;
-    font-weight: 700;
-    display: flex; align-items: center; padding: 0 10px;
-    transform: translate(-50%); left: 50%;
+    position: relative; height: 100%; font-weight: 700;
+    display: flex; align-items: center; padding: 0 10px; transition: 0.3s;
+}
+.menu_buttons .film_rand:hover p {
+    background-color: #fc2323; transition: 0.3s;
 }
 /* Конец меню */
 
 /* Первая секция со списком фильмов */
 .film_list {
-    position: relative; width: 100%; min-height: 600px; top: 60px; transition: 0.3s;
+    position: relative; width: 100%; min-height: 1080px; top: 60px; transition: 0.3s;
 }
 .film_list_conteiner {
-    position: relative; width: 100%; height: 100%;
-    display: flex; flex-wrap: wrap; justify-content: space-between;
+    position: relative; width: 100%; height: 100%; margin-bottom: 40px;
+    display: flex; flex-wrap: wrap; justify-content: left;
 }
 .film_list__film {
-    position: relative; width: 250px; height: 350px; margin: 10px;
+    position: relative; width: 250px; height: 350px; margin: 10px; transition: 0.3s;
     cursor: pointer;
 }
 .img_card_l {
@@ -190,59 +198,51 @@ body {
     transform: translate(-50%, -50%); top: 50%; left: 50%;
     transition: 0.3s;
 }
-.film_list__film--conteiner {
-    position: absolute; width: 500px; height: 350px; left: 270px;
-    display: none; background-color: #1f1f1f;
-    z-index: 2;
-}
-.film_list__film:nth-child(5) .film_list__film--conteiner,
-.film_list__film:nth-child(6) .film_list__film--conteiner,
-.film_list__film:nth-child(7) .film_list__film--conteiner,
-.film_list__film:nth-child(12) .film_list__film--conteiner,
-.film_list__film:nth-child(13) .film_list__film--conteiner,
-.film_list__film:nth-child(14) .film_list__film--conteiner,
-.film_list__film:nth-child(19) .film_list__film--conteiner,
-.film_list__film:nth-child(20) .film_list__film--conteiner,
-.film_list__film:nth-child(21) .film_list__film--conteiner {
-    left: -520px;
-}
-.film_list__film--conteiner .title {
-    position: relative; width: 100%; height: 50px; 
-    display: flex; align-items: center;
-}
-.film_list__film--conteiner .title p {
-    font-size: 18px; padding-left: 10px;
-}
-.film_list__film--conteiner .tags {
-    position: relative; width: 100%; height: 20px;
-    margin-bottom: 10px; display: flex; align-items: center;
-}
-.film_list__film--conteiner .tags p {
-    font-size: 12px; padding-left: 10px;
-}
-.film_list__film--conteiner .line {
-    position: relative; width: 480px; height: 2px; left: 10px;
-    border-radius: 100px; background-color: white; opacity: 0.3;
-}
-.film_list__film--conteiner .description {
-    position: relative; width: 100%; min-height: 30px; height: 210px; overflow: hidden;
-    padding-left: 10px; padding-right: 10px; margin-top: 10px;
-    font-size: 14px; line-height: 24px; text-align: left;
-}
 .film_list__film:hover {
-    box-shadow: 7px 7px 10px rgba(0,0,0, 0.7);
-}
-.film_list__film:hover .film_list__film--conteiner {
-    display: block; box-shadow: 7px 7px 10px rgba(0,0,0, 0.7);
+    box-shadow: 7px 7px 10px rgba(0,0,0, 0.7); transition: 0.3s;
 }
 .film_list__film:hover .img_card_l .img_card {
     transform: translate(-50%, -50%) scale(1.1) rotate(3deg); top: 50%; left: 50%; transition: 0.3s;
+}
+.list-preloader {
+    position: absolute; width: 100%; height: 100%; z-index: 7;
+    background-color: #1f1f1f; opacity: 1; transition: 0.5s; visibility: visible;
+    display: flex; justify-content: center; align-items: center;
+}
+.list-preloader .preloader {
+    position: absolute; width: 100px; height: 100px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #fc2323;
+    animation: spinC 2s linear infinite;
+    filter: blur(0.7px);
+}
+.list-preloader .preloader::after {
+    content: '';
+    position: absolute; width: 85px; height: 85px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #f1fd40; left: 7.5px;
+    animation: spinC 2s ease infinite;
+}
+.list-preloader .preloader::before {
+    content: '';
+    position: absolute; width: 110px; height: 110px; background-color: transparent;
+    border-radius: 100%; border-bottom: 3px solid #4d77ff; left: -5px;
+    animation: spinC 2s ease-in-out infinite;
+}
+@keyframes spinC {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.preloaderlist-done {
+    opacity: 0; visibility: hidden;
 }
 /* Конец - Первая секция со списком фильмов */
 
 /* Футер */
 .footer {
-	position: relative; width: 100%; height: 70px; top: 70px; transition: 0.3s;
+	position: fixed; width: 100%; height: 30px; transition: 0.3s; bottom: 0;
 	background-color: #1f1f1f;
 }
 .footer_content {
@@ -253,10 +253,16 @@ body {
     position: relative; width: 100%; height: 100%;
 }
 .footer_content p {
-	position: relative; font-size: 14px; 
+	position: relative; font-size: 10px; 
 	transform: translateY(-50%); top: 50%;
 	color: white;
 	float: left;
+}
+.footer_inf p a {
+    transition: 0.3s;
+}
+.footer_inf p a:hover {
+    color: red; transition: 0.3s;
 }
 #year {
 	margin-left: 5px;
