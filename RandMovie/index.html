@@ -7,13 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RandMovie</title>
     <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <script>
+            window.onload = function() {
+                setTimeout(function() {
+                    console.log(1);
+                    const preloader = document.querySelector('.preloader-bg');
+                    if (!preloader.classList.contains('preloader-done')) {
+                        preloader.classList.add('preloader-done');
+                    }
+                }, 3000);
+            };
+    </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="background_btn"></div>
 
+    <div class="preloader-bg">
+        <div class="preloader"></div>
+    </div>
+
+    <div class="background_btn"></div>
     <div class="film_card">
+        <div class="card-preloader">
+            <div class="preloader"></div>
+        </div>
         <div class="film_card--close_btn"><span></span></div>
         <div class="film_card_l"><img id="img" src="" alt="" class="film_card_img"></div>
         <div class="film_card_conteiner">
@@ -28,18 +47,22 @@
 
     <div class="menu">
         <div class="menu_conteiner">
-            <div class="menu_logo">
+            <a href="/" class="menu_logo">
                 <p style="float:left;">Rand</p>
                 <p style="float:left;">Movie</p>
-            </div>
-            <div class="menu_search">
-                <input type="text">
-                <button><img src="https://positivego.github.io/RandMovie/assets/img/buttons/search.svg" alt=""></button>
-            </div>
+            </a>
             <div class="menu_buttons">
-                <div class="film_rand">
-                    <p>Шо поглазеть ?</p>
+                <div class="filter_buttons">
+                    <div class="filterBtn" id="Triller"><p>Триллер</p></div>
+                    <div class="filterBtn" id="Drama"><p>Драма</p></div>
+                    <div class="filterBtn" id="Detective"><p>Детектив</p></div>
+                    <div class="filterBtn" id="Fantastic"><p>Фантастика</p></div>
+                    <div class="filterBtn" id="Comedy"><p>Комедия</p></div>
+                    <div class="filterBtn" id="Horror"><p>Ужасы</p></div>
+                    <div class="filterBtn" id="Fentasi"><p>Фэнтези</p></div>
                 </div>
+                <div class="line"></div>
+                <div class="film_rand"><p>Random</p></div>
             </div>
         </div>
     </div>
@@ -58,7 +81,6 @@
 	</section>
 
 </body>
-
 <script src="assets/js/Main.js"></script>
 
 </html>
