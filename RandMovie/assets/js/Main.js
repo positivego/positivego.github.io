@@ -109,7 +109,7 @@ function renderCards(data) {
         card.className = 'film_list__film';
         card.innerHTML = `
                 <div class="img_card_l">
-                    <img src="${data.films[i].img}" alt="${data.films[i].title" class="img_card">
+                    <img src="${data.films[i].img}" alt="${data.films[i].title}" class="img_card">
                 </div>
         `;
         filmWrapper.appendChild(card);
@@ -160,7 +160,7 @@ function renderFilter(data){
                 card.className = 'film_list__film';
                 card.innerHTML = `
                     <div class="img_card_l">
-                        <img src="${data.films[index].img}" alt="${data.films[index].title" class="img_card">
+                        <img src="${data.films[index].img}" alt="${data.films[index].title}" class="img_card">
                     </div>
                 `;
                 filmWrapper.appendChild(card);
