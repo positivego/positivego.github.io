@@ -156,8 +156,9 @@ a {
     position: relative; height: 100%; cursor: pointer;
 }
 .filter_buttons .filterBtn p {
-    position: relative; height: 100%;
-    display: flex; align-items: center; margin: 0 10px; transition: 0.3s;
+    position: relative; height: 100%; width: 100%;
+    display: flex; align-items: center; transition: 0.3s;
+    padding: 0 10px;
 }
 .filter_buttons .filterBtn:hover p {
     color: #fc2323; transition: 0.3s;
@@ -274,4 +275,9 @@ a {
 
 .fitlerBlur {
     filter: blur(5px); transition: 0.3s;
+}
+
+.btnActive {
+    background-color: red;
+    color: white !important;
 }
