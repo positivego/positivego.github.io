@@ -1,21 +1,28 @@
-
 document.querySelector('.background_btn').onclick = function () {
-    document.querySelector('.card-preloader').classList.remove('preloader-done');
-    document.querySelector('.film_card').classList.remove('film_card_active');
-    document.querySelector('.background_btn').classList.remove('background_btn_active');
-    document.querySelector('.film_list_conteiner').classList.remove('fitlerBlur');
-    document.querySelector('.menu_conteiner').classList.remove('fitlerBlur');
-    document.querySelector('.footer_content').classList.remove('fitlerBlur');
+    resetClass()
 };
 document.querySelector('.film_card--close_btn').onclick = function () {
+    resetClass()
+};
+
+function resetClass() {
     document.querySelector('.card-preloader').classList.remove('preloader-done');
     document.querySelector('.film_card').classList.remove('film_card_active');
     document.querySelector('.background_btn').classList.remove('background_btn_active');
     document.querySelector('.film_list_conteiner').classList.remove('fitlerBlur');
     document.querySelector('.menu_conteiner').classList.remove('fitlerBlur');
     document.querySelector('.footer_content').classList.remove('fitlerBlur');
-};
+}
 
+function addClass() {
+    document.querySelector('.film_card').classList.add('film_card_active');
+    document.querySelector('.background_btn').classList.add('background_btn_active');
+    document.querySelector('.film_list_conteiner').classList.add('fitlerBlur');
+    document.querySelector('.menu_conteiner').classList.add('fitlerBlur');
+    document.querySelector('.footer_content').classList.add('fitlerBlur');
+}
+
+// Получение данных
 
 function getData() {
     return fetch('https://positivego.github.io/RandMovie/assets/js/bd/Films.json').then((response) => {
@@ -42,11 +49,7 @@ function randBtn(data) {
         btnRand = document.querySelector('.randBtn');
 
     btnRandMovie.onclick = function () {
-        document.querySelector('.film_card').classList.add('film_card_active');
-        document.querySelector('.background_btn').classList.add('background_btn_active');
-        document.querySelector('.film_list_conteiner').classList.add('fitlerBlur');
-        document.querySelector('.menu_conteiner').classList.add('fitlerBlur');
-        document.querySelector('.footer_content').classList.add('fitlerBlur');
+        addClass();
         let num = Math.floor(Math.random() * data.films.length);
             title = data.films[num].title,
             year = data.films[num].year,
@@ -115,11 +118,7 @@ function renderCards(data) {
         filmWrapper.appendChild(card);
 
         card.onclick = function () {
-            document.querySelector('.film_card').classList.add('film_card_active');
-            document.querySelector('.background_btn').classList.add('background_btn_active');
-            document.querySelector('.film_list_conteiner').classList.add('fitlerBlur');
-            document.querySelector('.menu_conteiner').classList.add('fitlerBlur');
-            document.querySelector('.footer_content').classList.add('fitlerBlur');
+            addClass();
             let title = data.films[i].title,
                 year = data.films[i].year,
                 tags = data.films[i].tags,
@@ -141,14 +140,19 @@ function renderCards(data) {
     };
 };
 
-// ---- конец ----
+// ---- конец ---
 
 function renderFilter(data){
 
     let filterBtn = document.querySelector('.filter_buttons');
     filterBtn.onclick = function() {
         const filmWrapper = document.querySelector('.film_list_conteiner');
-        let filterBtnTextContent = new RegExp(event.target.textContent, 'i');
+        let filterBtnTextContent = new RegExp(event.target.textContent, 'i'),
+            btn = document.getElementsByClassName('filterBtn');
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].firstChild.classList.remove('btnActive');
+        }
+        event.target.classList.add('btnActive');
         filmWrapper.innerHTML = '';
         function sRand() {
             return Math.random() > 0.5 ? 1 : -1;
@@ -166,11 +170,7 @@ function renderFilter(data){
                 filmWrapper.appendChild(card);
 
                 card.onclick = function () {
-                    document.querySelector('.film_card').classList.add('film_card_active');
-                    document.querySelector('.background_btn').classList.add('background_btn_active');
-                    document.querySelector('.film_list_conteiner').classList.add('fitlerBlur');
-                    document.querySelector('.menu_conteiner').classList.add('fitlerBlur');
-                    document.querySelector('.footer_content').classList.add('fitlerBlur');
+                    addClass();
                     let title = data.films[index].title,
                         year = data.films[index].year,
                         tags = data.films[index].tags,
